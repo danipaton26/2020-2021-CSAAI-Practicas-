@@ -1,16 +1,31 @@
 body{
-    background-color: cornflowerblue;
+    background-image:url(imagenes/fondo2.jpg) ;
+}
+.h1{
+    color: white;
+}
+.fotoperfil{
+    margin-top: 6px;
+    margin-left: 50px;
+    border-radius: 500px;
+    height: 200px;
+    width: 200px;
 }
 #izq{
-    background-color: coral;
+    border-radius: 20px;
+    background-color: gold;
     width: 30%;
-    border: black;
+    border:solid green;
     float: left;
+    margin-bottom: 2%;
 }
 #derecha{
-
+    text-align: center;
+    border-radius: 20px;
     background-color: gold;
-    width: 65%;
-    float:right;
-    text-align:center;
+    width: 60%;
+    border: solid green;
+    float: right;
+    margin-right: 5%;
+    
 }
