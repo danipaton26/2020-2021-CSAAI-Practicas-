@@ -1,0 +1,16 @@
+body{
+    background-color: cornflowerblue;
+}
+#izq{
+    background-color: coral;
+    width: 30%;
+    border: black;
+    float: left;
+}
+#derecha{
+
+    background-color: gold;
+    width: 65%;
+    float:right;
+    text-align:center;
+}
