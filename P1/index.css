@@ -1,8 +1,17 @@
+@font-face{
+    font-family: "poor";
+    src: url("poor.ttf");
+}
 body{
     background-image:url(imagenes/fondo2.jpg) ;
+    font-family: "poor";
+    font-size: 20px;
 }
 .h1{
     color: white;
+    text-align: center;
+    font-family: "poor";
+    font-size: 100px;
 }
 .fotoperfil{
     margin-top: 6px;
@@ -11,6 +20,7 @@ body{
     border:solid white;
     height: 200px;
     width: 200px;
+
 }
 #izq{
     border-radius: 20px;
@@ -42,4 +52,13 @@ body{
     border: solid white;
     float: right;
     margin-right: 5%;
+}
+.left{
+    float: left;
+    margin-left: 20px;
+    
+}
+.right{
+    float: right;
+    margin-right: 20px;
 }
