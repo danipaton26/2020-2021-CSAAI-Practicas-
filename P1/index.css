@@ -1,18 +1,22 @@
+/*Fuente de letra*/
 @font-face{
     font-family: "poor";
     src: url("poor.ttf");
 }
+/*Cuerpo de la página*/
 body{
     background-image:url(imagenes/fondo2.jpg) ;
     font-family: "poor";
     font-size: 20px;
 }
+/*Título*/
 .h1{
     color: white;
     text-align: center;
     font-family: "poor";
     font-size: 100px;
 }
+/*Foto de perfil*/
 .fotoperfil{
     margin-top: 6px;
     margin-left: 20px;
@@ -22,6 +26,7 @@ body{
     width: 200px;
 
 }
+/*Toda la información que se muestra en la izquierda*/
 #izq{
     border-radius: 20px;
     background-color: rgb(83, 194, 216, 0.7);
@@ -31,6 +36,7 @@ body{
     margin-bottom: 2%;
     
 }
+/*Estilo para todo los fieldset*/
 .fieldset{
     margin: 20px;
     border-radius: 20px;
@@ -38,6 +44,7 @@ body{
     border: solid white;
 
 }
+/*Estilo para los títulos de los fieldset*/
 .legend{
     border-radius: 50px;
     border: solid white;
@@ -46,6 +53,7 @@ body{
     margin-left: 5%;
    
 }
+/*Toda la información que se muestra en la derecha*/
 #derecha{
     text-align: center;
     border-radius: 20px;
@@ -55,11 +63,13 @@ body{
     float: right;
     margin-right: 5%;
 }
+/*Separo a la izquierda la información de cosas random*/
 .left{
     float: left;
     margin-left: 20px;
     
 }
+/*Separo a la derecha la información de cosas random*/
 .right{
     float: right;
     margin-right: 20px;
