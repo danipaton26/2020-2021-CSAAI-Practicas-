@@ -6,26 +6,35 @@ body{
 }
 .fotoperfil{
     margin-top: 6px;
-    margin-left: 50px;
-    border-radius: 500px;
+    margin-left: 20px;
+    border-radius: 200px;
+    border:solid white;
     height: 200px;
     width: 200px;
 }
 #izq{
     border-radius: 20px;
-    background-color: gold;
+    background-color: rgb(83, 194, 216, 0.7);
     width: 30%;
-    border:solid green;
+    border:solid white;
     float: left;
     margin-bottom: 2%;
+    
 }
+.fieldset{
+    margin: 20px;
+    border-radius: 20px;
+    background-color:  #53c2d8 ;
+    border: solid white;
+
+}
+
 #derecha{
     text-align: center;
     border-radius: 20px;
-    background-color: gold;
+    background-color: rgb(83, 194, 216, 0.7);
     width: 60%;
-    border: solid green;
+    border: solid white;
     float: right;
     margin-right: 5%;
-    
 }
