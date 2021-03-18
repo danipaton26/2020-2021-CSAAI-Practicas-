@@ -28,7 +28,12 @@ body{
     border: solid white;
 
 }
-
+.legend{
+    border-radius: 50px;
+    border: solid white;
+    background-color:  #4d82f4 ;
+   
+}
 #derecha{
     text-align: center;
     border-radius: 20px;
