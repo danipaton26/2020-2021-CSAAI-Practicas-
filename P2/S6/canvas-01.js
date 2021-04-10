@@ -13,6 +13,7 @@ ctx.beginPath();
 ctx.rect(10,10, 100, 50);
 
 ctx.fillStyle = 'red';
+ctx.lineWidth = 4;
 ctx.fill();
 
 ctx.stroke();
