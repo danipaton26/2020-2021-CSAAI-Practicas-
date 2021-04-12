@@ -2,4 +2,5 @@
 const test = document.getElementById('test')
 
 console.log("Párrafo test leido. Dice:")
-console.log(test.innerHTML)
+console.log(test.innerHTML = "parrafo cambiado")
+test.innerHTML += " hula"
