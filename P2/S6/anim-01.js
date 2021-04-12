@@ -8,9 +8,12 @@ const ctx = canvas.getContext("2d");
 let x = 0;
 let y = 0;
 
+let velx = 1;
+
 function update()
     {
         console.log("test");
+        x = x + velx;
 
        ctx.clearRect(0, 0, canvas.width, canvas.height);
        
