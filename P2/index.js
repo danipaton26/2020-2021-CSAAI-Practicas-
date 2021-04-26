@@ -7,7 +7,7 @@ clear = document.getElementById("clear")
 igual = document.getElementById("igual")
 
 //Arrays de los dígitos y de los operadores
-let digito = document.getElementsByClassName("digito");
+let digitos = document.getElementsByClassName("digito");
 let operador = document.getElementsByClassName("operador");
 
 //Estados de la calculadora
@@ -19,39 +19,36 @@ const ESTADO = {
 }
 let estado = ESTADO.INIT;
 
-function digito(ev){
+for(i=0; i<digitos.length; i++){
+    digitos[i].onclick=(ev)=>{
+        digitos(ev.target.value);
+    }
+}
+
+for(i=0; i<operador.length; i++){
+    operador[i].onclick=(ev)=>{
+        operador(ev.target.value);
+    }
+}
+
+function digito(num){
 
     if (estado == ESTADO.INIT) {
-        display.innerHTML = ev.target.value;
+        display.innerHTML = num;
         estado = ESTADO.OP1;
     }
     else{
-        display.innerHTML += ev.target.value;
+        display.innerHTML += num;
     }
 }
 
-for (let numero of digito){
-    numero.onclick = (ev) => {
-        display.innerHTML += ev.target.value
-        console.log("digito")
-    }
-}
 
-for (let operacion of operador) {
-    operacion.onclick = (ev) => {
-        if (estado == ESTADO.OP1){
-            display.innerHTML += ev.target.value;
-            estado = ESTADO.OPERATION;
-            console.log("operador") 
-        }
-       
-    }
-}
 
 igual.onclick = () => {
     if (estado == ESTADO.OP1 || estado == ESTADO.OP2) {
         display.innerHTML = eval(display.innerHTML);
         estado = ESTADO.OP1;
+      
     }
 }
 
