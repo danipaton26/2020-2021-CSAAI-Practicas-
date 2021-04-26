@@ -42,9 +42,17 @@ function digit(num){
         display.innerHTML = num;
         estado = ESTADO.OP1;
     }
-    else{
+    else if(estado == ESTADO.OP1){
         display.innerHTML += num;
     }
+    else if(estado == ESTADO.OPERATION){
+        display.innerHTML += num;
+        estado = ESTADO.OP2;
+    }
+    else if(estado == ESTADO.OP2){
+        display.innerHTML += num;
+    }
+
 }
 
 igual.onclick = () => {
