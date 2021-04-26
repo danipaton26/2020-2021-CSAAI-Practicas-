@@ -68,3 +68,8 @@ clear.onclick = (ev) => {
     console.log("clear")
     estado = ESTADO.OP1;
 }
+
+//Borrar
+borrar.onclick = (ev) =>{
+    display.innerHTML = display.innerHTML.slice(0, -1);
+}
