@@ -21,17 +21,22 @@ let estado = ESTADO.INIT;
 
 for(i=0; i<digitos.length; i++){
     digitos[i].onclick=(ev)=>{
-        digitos(ev.target.value);
+        digit(ev.target.value);
+        console.log("digito...")
     }
 }
 
 for(i=0; i<operador.length; i++){
     operador[i].onclick=(ev)=>{
-        operador(ev.target.value);
+        if(estado == ESTADO.OP1){
+            display.innerHTML += ev.target.value;
+            estado = ESTADO.OPERATION;
+        }
+
     }
 }
 
-function digito(num){
+function digit(num){
 
     if (estado == ESTADO.INIT) {
         display.innerHTML = num;
@@ -41,8 +46,6 @@ function digito(num){
         display.innerHTML += num;
     }
 }
-
-
 
 igual.onclick = () => {
     if (estado == ESTADO.OP1 || estado == ESTADO.OP2) {
@@ -55,4 +58,5 @@ igual.onclick = () => {
 clear.onclick = (ev) => {
     display.innerHTML = 0;
     console.log("clear")
+    estado = ESTADO.OP1;
 }
