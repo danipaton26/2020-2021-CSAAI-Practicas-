@@ -5,7 +5,7 @@ display = document.getElementById("display")
 borrar = document.getElementById("borrar")
 clear = document.getElementById("clear")
 igual = document.getElementById("igual")
-
+sqrt = document.getElementById("sqrt");
 
 //Arrays de los dígitos y de los operadores
 let digitos = document.getElementsByClassName("digito");
@@ -83,3 +83,7 @@ borrar.onclick = (ev) =>{
 
 }
 
+sqrt.onclick = () => {
+    display.innerHTML = Math.sqrt(display.innerHTML);
+    
+  }
