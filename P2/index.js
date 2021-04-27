@@ -6,6 +6,7 @@ borrar = document.getElementById("borrar")
 clear = document.getElementById("clear")
 igual = document.getElementById("igual")
 
+
 //Arrays de los dígitos y de los operadores
 let digitos = document.getElementsByClassName("digito");
 let operador = document.getElementsByClassName("operador");
@@ -81,3 +82,4 @@ borrar.onclick = (ev) =>{
     display.innerHTML = display.innerHTML.slice(0, -1);
 
 }
+
