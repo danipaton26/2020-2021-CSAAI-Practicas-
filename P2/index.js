@@ -29,10 +29,10 @@ for(i=0; i<digitos.length; i++){
 for(i=0; i<operador.length; i++){
     operador[i].onclick=(ev)=>{
         if(estado == ESTADO.OP1){
-            display.innerHTML += ev.target.value;
-            estado = ESTADO.OPERATION;
+            
+            operacion(ev.target.value);
+            console.log("operacion...");
         }
-
     }
 }
 
@@ -55,6 +55,13 @@ function digit(num){
 
 }
 
+function operacion(ope){
+    if (estado != ESTADO.OPERATION){
+        display.innerHTML += ope;
+        estado = ESTADO.OPERATION;
+    }
+}
+
 igual.onclick = () => {
     if (estado == ESTADO.OP1 || estado == ESTADO.OP2) {
         display.innerHTML = eval(display.innerHTML);
@@ -72,4 +79,5 @@ clear.onclick = (ev) => {
 //Borrar
 borrar.onclick = (ev) =>{
     display.innerHTML = display.innerHTML.slice(0, -1);
+
 }
