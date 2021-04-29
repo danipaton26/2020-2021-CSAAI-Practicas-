@@ -38,7 +38,7 @@ let raqueta = {
     x: canvas.width /2 - 30,
     draw: function(){
         ctx.beginPath();
-        ctx.rect(this.x, canvas.height - this.height, this.width, this.height);
+        ctx.rect(this.x, canvas.height - this.height - 10, this.width, this.height);
         ctx.fillStyle = "white";
         ctx.closePath();
         ctx.fill();
@@ -97,7 +97,16 @@ function play(){
     ball.x += ball.dx;
     ball.y += ball.dy;
 
+    if (
+        ball.x >= raqueta.x && ball.x <= raqueta.x + raqueta.width &&
+         ball.y + ball.radius >= canvas.height - raqueta.height - 10) {
+        ball.dy = -ball.dy;
+        
+      }
+
     requestAnimationFrame(play);
+
+
 }
 play();
 
