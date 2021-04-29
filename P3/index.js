@@ -10,6 +10,12 @@ const ctx = canvas.getContext("2d");
 
 let speed = 3;
 
+let rightPressed = false;
+let leftPressed = false;
+
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+
 let ball = {
     x: canvas.width /2,
     y: canvas.height - 50,
@@ -39,6 +45,33 @@ let raqueta = {
     }
 };
 
+function keyDownHandler(e) {
+    if (e.key == "Right" || e.key == "ArrowRight") {
+      rightPressed = true;
+    }
+    if (e.key == "Left" || e.key == "ArrowLeft") {
+      leftPressed = true;
+    }
+  }
+
+  function keyUpHandler(e) {
+    if (e.key == "Right" || e.key == "ArrowRight") {
+      rightPressed = false;
+    }
+    if (e.key == "Left" || e.key == "ArrowLeft") {
+      leftPressed = false;
+    }
+  }
+
+  function moveRaqueta(){
+      if(rightPressed){
+          raqueta.x += 7;
+      }
+      if(leftPressed){
+          raqueta.x -= 7;
+      }
+  }
+
 function play(){
 
     if (ball.x <0 || ball.x >= canvas.width - 7) {
@@ -53,6 +86,7 @@ function play(){
 
     ball.draw();
     raqueta.draw();
+    moveRaqueta();
 
     ball.x += ball.dx;
     ball.y += ball.dy;
