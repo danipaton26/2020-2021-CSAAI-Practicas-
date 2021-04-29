@@ -3,39 +3,46 @@
 const canvas = document.getElementById("canvas");
 
 canvas.width = 400;
-canvas.height = 600;
+canvas.height = 500;
 
 const ctx = canvas.getContext("2d");
-//velocicades
-let x = 1;
-let y = 1;
 
-let velx = 3;
-let vely = 1;
 
-//pelota con el movimiento
-function update(){
+let speed = 3;
 
-    if(x <= 0 || x >= canvas.width - 20){
-        velx = -velx
+let ball = {
+    x: canvas.width /2,
+    y: canvas.height - 50,
+    dx: speed,
+    dy: -speed + 1,
+    radius: 7,
+    draw: function() {
+        ctx.beginPath();
+          ctx.fillStyle = "white";
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+          ctx.closePath();
+        ctx.fill();
     }
-    if(y <= 0 || y >= canvas.height - 20){
-        vely = -vely
+};
+
+
+let raqueta = {
+    width: 60,
+    height: 10,
+    x: canvas.width /2 - 30,
+    draw: function(){
+        ctx.beginPath();
+        ctx.rect(this.x, canvas.height - this.height, this.width, this.height);
+        ctx.fillStyle = "white";
+        ctx.closePath();
+        ctx.fill();
     }
+};
 
-    x = x + velx;
-    y = y + vely;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-      ctx.rect(x, y, 20, 20)
-      ctx.fillStyle = 'white';
-      ctx.fill();
-      ctx.stroke();
-    ctx.closePath();
-    requestAnimationFrame(update);
+function play(){
+    ball.draw();
+    raqueta.draw();
 }
-update()
-
+play();
 
 
