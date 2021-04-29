@@ -7,6 +7,55 @@ canvas.height = 500;
 
 const ctx = canvas.getContext("2d");
 
+const LADRILLO = {
+    F: 4,
+    C: 10,
+    w: 38,
+    h: 20,
+    padding: 2,
+    visible: true
+};
+
+const ladrillos = [];
+
+for (let i = 0; i < LADRILLO.F; i++){
+    ladrillos[i] = [];
+    for (let j = 0; j < LADRILLO.C; j++){
+        ladrillos[i][j] = {
+            x: (LADRILLO.w + LADRILLO.padding) * j,
+            y: (LADRILLO.h + LADRILLO.padding) * i,
+            w: LADRILLO.w,
+            h: LADRILLO.h,
+            padding: LADRILLO.padding,
+            visible: LADRILLO.visible
+        };
+    }
+
+    }
+function drawLadrillos() {
+    for (let i = 0; i < LADRILLO.F; i++) {
+        for (let j = 0; j < LADRILLO.C; j++){
+            if (ladrillos[i][j].visible) {
+                ctx.beginPath();
+                ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+                ctx.fillStyle = "yellow";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+    for (let i = 0; i < LADRILLO.F; i++) {
+        for (let j = 0; j < LADRILLO.C; j++){
+            if (ladrillos[i][j].visible) {
+                ctx.beginPath();
+                ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+                ctx.fillStyle = "yellow";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
 
 let speed = 3;
 
@@ -93,6 +142,7 @@ function play(){
     ball.draw();
     raqueta.draw();
     moveRaqueta();
+    drawLadrillos();
 
     ball.x += ball.dx;
     ball.y += ball.dy;
@@ -103,6 +153,8 @@ function play(){
         ball.dy = -ball.dy;
         
       }
+
+    
 
     requestAnimationFrame(play);
 
