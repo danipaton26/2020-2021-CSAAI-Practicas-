@@ -66,9 +66,15 @@ function keyDownHandler(e) {
   function moveRaqueta(){
       if(rightPressed){
           raqueta.x += 7;
+          if(raqueta.x + raqueta.width >= canvas.width){
+              raqueta.x = canvas.width - raqueta.width;
+          }
       }
       if(leftPressed){
           raqueta.x -= 7;
+          if(raqueta.x < 0){
+              raqueta.x = 0;
+          }
       }
   }
 
