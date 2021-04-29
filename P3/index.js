@@ -45,17 +45,23 @@ function drawLadrillos() {
         }
     }
 }
-    for (let i = 0; i < LADRILLO.F; i++) {
+
+function colisionLadrillo(){
+    for(let i = 0; i < LADRILLO.F; i++){
         for (let j = 0; j < LADRILLO.C; j++){
-            if (ladrillos[i][j].visible) {
-                ctx.beginPath();
-                ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
-                ctx.fillStyle = "yellow";
-                ctx.fill();
-                ctx.closePath();
+            if(ladrillos[i][j].visible == true){
+                if(ball.x >= ladrillos[i][j].x &&
+                   ball.x <= ladrillos[i][j].x + LADRILLO.w &&
+                   ball.y >= ladrillos[i][j].y &&
+                   ball.y <= ladrillos[i][j].y + LADRILLO.h)
+                   {
+                       ball.dy = -ball.dy;
+                   
+                   }
             }
         }
     }
+}
 
 let speed = 3;
 
@@ -143,17 +149,16 @@ function play(){
     raqueta.draw();
     moveRaqueta();
     drawLadrillos();
+    colisionLadrillo();
 
     ball.x += ball.dx;
     ball.y += ball.dy;
 
-    if (
-        ball.x >= raqueta.x && ball.x <= raqueta.x + raqueta.width &&
+    if (ball.x >= raqueta.x && ball.x <= raqueta.x + raqueta.width &&
          ball.y + ball.radius >= canvas.height - raqueta.height - 10) {
         ball.dy = -ball.dy;
-        
-      }
-
+         }
+    
     
 
     requestAnimationFrame(play);
