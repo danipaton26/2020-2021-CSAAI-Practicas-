@@ -40,8 +40,24 @@ let raqueta = {
 };
 
 function play(){
+
+    if (ball.x <0 || ball.x >= canvas.width - 7) {
+        ball.dx = -ball.dx;
+      }
+    
+      if (ball.y <0 || ball.y >= canvas.height - 7) {
+        ball.dy = -ball.dy;
+      }
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     ball.draw();
     raqueta.draw();
+
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    requestAnimationFrame(play);
 }
 play();
 
