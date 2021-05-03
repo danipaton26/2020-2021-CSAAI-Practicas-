@@ -8,7 +8,7 @@ canvas.height = 500;
 const ctx = canvas.getContext("2d");
 
 const LADRILLO = {
-    F: 4,
+    F: 1,
     C: 10,
     w: 38,
     h: 20,
@@ -65,6 +65,7 @@ function colisionLadrillo(){
 }
 
 let speed = 3;
+let vidas = 3;
 
 let rightPressed = false;
 let leftPressed = false;
@@ -75,8 +76,8 @@ document.addEventListener("keyup", keyUpHandler);
 let ball = {
     x: canvas.width /2,
     y: canvas.height - 50,
-    dx: speed,
-    dy: -speed + 1,
+    dx: 0,
+    dy: 0,
     radius: 7,
     draw: function() {
         ctx.beginPath();
@@ -86,7 +87,12 @@ let ball = {
         ctx.fill();
     }
 };
-
+window.onkeydown = (e) => {
+    if(e.keyCode == 32){
+        ball.dx = speed;
+        ball.dy = -speed -1;
+    }
+}
 
 let raqueta = {
     width: 60,
@@ -140,8 +146,15 @@ function play(){
         ball.dx = -ball.dx;
       }
     
-      if (ball.y <0 || ball.y >= canvas.height - 7) {
-        ball.dy = -ball.dy;
+      if ( ball.y >= canvas.height) {
+        vidas = vidas - 1;
+        if (vidas >= 1){
+            ball.x = canvas.width/2;
+            ball.y = canvas.height - 50;
+        }
+        else if (ball.y <0){
+            ball.dx = -ball.dy;
+        }
       }
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
