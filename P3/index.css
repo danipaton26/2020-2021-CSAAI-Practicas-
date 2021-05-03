@@ -4,5 +4,7 @@ canvas{
     border-color: navy;
     border-width: 2px;
     border-radius: 1px;
-    
+    margin-top: 50px;
+    margin: 0 auto;
 }
+

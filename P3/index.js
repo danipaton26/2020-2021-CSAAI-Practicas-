@@ -2,14 +2,14 @@
 //definimos canvas
 const canvas = document.getElementById("canvas");
 
-canvas.width = 400;
-canvas.height = 500;
+canvas.width = 520;
+canvas.height = 400;
 
 const ctx = canvas.getContext("2d");
 
 const LADRILLO = {
     F: 4,
-    C: 10,
+    C: 13,
     w: 38,
     h: 20,
     padding: 2,
@@ -24,7 +24,7 @@ for (let i = 0; i < LADRILLO.F; i++){
     for (let j = 0; j < LADRILLO.C; j++){
         ladrillos[i][j] = {
             x: (LADRILLO.w + LADRILLO.padding) * j,
-            y: (LADRILLO.h + LADRILLO.padding) * i,
+            y: 40 + (LADRILLO.h + LADRILLO.padding) * i,
             w: LADRILLO.w,
             h: LADRILLO.h,
             padding: LADRILLO.padding,
@@ -156,8 +156,15 @@ function play(){
         ball.y = canvas.height -50;
         ball.dx = 0;
         ball.dy = 0;
+        if (vidas == 0){
+            document.location.reload(); //reinicio cuando se pierden las vidas 
+        }
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = 'green';
+    ctx.font = "Arial";
+    ctx.strokeText("VIDAS: " + vidas , 10, 20);
 
     ball.draw();
     raqueta.draw();
