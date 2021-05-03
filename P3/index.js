@@ -8,7 +8,7 @@ canvas.height = 500;
 const ctx = canvas.getContext("2d");
 
 const LADRILLO = {
-    F: 1,
+    F: 4,
     C: 10,
     w: 38,
     h: 20,
@@ -88,9 +88,10 @@ let ball = {
     }
 };
 window.onkeydown = (e) => {
-    if(e.keyCode == 32){
+    if (e.keyCode == 32){
         ball.dx = speed;
-        ball.dy = -speed -1;
+        ball.dy = -speed +1
+        
     }
 }
 
@@ -146,17 +147,16 @@ function play(){
         ball.dx = -ball.dx;
       }
     
-      if ( ball.y >= canvas.height) {
-        vidas = vidas - 1;
-        if (vidas >= 1){
-            ball.x = canvas.width/2;
-            ball.y = canvas.height - 50;
-        }
-        else if (ball.y <0){
-            ball.dx = -ball.dy;
-        }
+      if (ball.y <0) {
+        ball.dy = -ball.dy;
       }
-    
+    if (ball.y >= canvas.height) {
+        vidas = vidas -1;
+        ball.x = canvas.width /2;
+        ball.y = canvas.height -50;
+        ball.dx = 0;
+        ball.dy = 0;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ball.draw();
