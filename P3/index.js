@@ -13,7 +13,8 @@ const LADRILLO = {
     w: 38,
     h: 20,
     padding: 2,
-    visible: true
+    visible: true,
+
 };
 
 const ladrillos = [];
@@ -56,7 +57,7 @@ function colisionLadrillo(){
                    ball.y <= ladrillos[i][j].y + LADRILLO.h)
                    {
                        ball.dy = -ball.dy;
-                   
+                       ladrillos[i][j].visible = false;
                    }
             }
         }
