@@ -8,8 +8,22 @@ canvas{
     border-color: navy;
     border-width: 2px;
     border-radius: 1px;
-    margin-top: 50px;
-    margin: 0 auto;
+    margin-top: 5%;
+    
     margin-left: 30%;
 }
 
+#gameover{
+    margin-left: 20%;
+    margin-top: 150px;
+}
+
+#win{
+    margin-left: 25%;
+    margin-top: 150px;
+}
+
+#play{
+    margin-bottom: 50px;
+    margin-left: 45%;
+}

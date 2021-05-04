@@ -61,10 +61,15 @@ function colisionLadrillo(){
                        ball.dy = -ball.dy;
                        ladrillos[i][j].visible = false;
                        score = score + 1;
-                       if (score == 65){
-                        
+                    } else  if (score == 64){
+                        ball.dx = 0;
+                        ball.dy = 0;
+                        document.getElementById("canvas").style.display = "none";
+                        document.getElementById("win").style.display = "block";
+                        document.getElementById("play").style.display = "";
+                        console.log("he ganado");
                        }
-                   }
+                   
             }
         }
     }
@@ -79,6 +84,7 @@ let leftPressed = false;
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
+
 
 let ball = {
     x: canvas.width /2,
@@ -149,6 +155,9 @@ function keyDownHandler(e) {
   }
 
 function play(){
+    document.getElementById("win").style.display = "none";
+    document.getElementById("gameover").style.display = "none";
+    document.getElementById("play").style.display = "none";
 
     if (ball.x <0 || ball.x >= canvas.width - 7) {
         ball.dx = -ball.dx;
@@ -163,10 +172,13 @@ function play(){
         ball.y = canvas.height -50;
         ball.dx = 0;
         ball.dy = 0;
-        if (vidas == 0){
-            document.location.reload(); //reinicio cuando se pierden las vidas 
+        }else if (vidas == 0){
+            document.getElementById("canvas").style.display = "none";
+            document.getElementById("gameover").style.display = "";
+            document.getElementById("play").style.display = "";
+            
         }
-    }
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.strokeStyle = 'green';
