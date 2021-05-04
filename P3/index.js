@@ -61,18 +61,12 @@ function colisionLadrillo(){
                        ball.dy = -ball.dy;
                        ladrillos[i][j].visible = false;
                        score = score + 1;
-                    } else  if (score == 64){
-                        ball.dx = 0;
-                        ball.dy = 0;
-                        document.getElementById("canvas").style.display = "none";
-                        document.getElementById("win").style.display = "block";
-                        document.getElementById("play").style.display = "";
-                        console.log("he ganado");
-                       }
+                    } 
                    
             }
         }
     }
+
 }
 
 let speed = 4;
@@ -176,8 +170,18 @@ function play(){
             document.getElementById("canvas").style.display = "none";
             document.getElementById("gameover").style.display = "";
             document.getElementById("play").style.display = "";
+            console.log("he perdido");
             
+        } else if (score == 65){
+            ball.dx = 0;
+            ball.dy = 0;
+            speed = 0;
+            document.getElementById("canvas").style.display = "none";
+            document.getElementById("win").style.display = "block";
+            document.getElementById("play").style.display = "";
+            console.log("he ganado");
         }
+    
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
