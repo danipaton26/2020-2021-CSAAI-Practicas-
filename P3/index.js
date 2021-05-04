@@ -61,6 +61,9 @@ function colisionLadrillo(){
                        ball.dy = -ball.dy;
                        ladrillos[i][j].visible = false;
                        score = score + 1;
+                       if (score == 65){
+                        
+                       }
                    }
             }
         }
@@ -185,7 +188,11 @@ function play(){
 
     if (ball.x >= raqueta.x && ball.x <= raqueta.x + raqueta.width &&
          ball.y + ball.radius >= canvas.height - raqueta.height - 10) {
-        ball.dy = -ball.dy;
+             let collidePoint = ball.x - (raqueta.x + raqueta.width/2);
+             collidePoint = collidePoint / (raqueta.width/2);
+             let angle = collidePoint * Math.PI/3;
+             ball.dx = speed * Math.sin(angle);
+             ball.dy = -speed * Math.cos(angle);
          }
     
     
