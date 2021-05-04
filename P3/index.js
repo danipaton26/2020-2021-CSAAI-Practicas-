@@ -3,12 +3,14 @@
 const canvas = document.getElementById("canvas");
 
 canvas.width = 520;
-canvas.height = 400;
+canvas.height = 450;
 
 const ctx = canvas.getContext("2d");
+izq = document.getElementById("izq");
+der = document.getElementById("der");
 
 const LADRILLO = {
-    F: 4,
+    F: 5,
     C: 13,
     w: 38,
     h: 20,
@@ -58,14 +60,16 @@ function colisionLadrillo(){
                    {
                        ball.dy = -ball.dy;
                        ladrillos[i][j].visible = false;
+                       score = score + 1;
                    }
             }
         }
     }
 }
 
-let speed = 3;
+let speed = 4;
 let vidas = 3;
+let score = 0;
 
 let rightPressed = false;
 let leftPressed = false;
@@ -165,6 +169,10 @@ function play(){
     ctx.strokeStyle = 'green';
     ctx.font = "Arial";
     ctx.strokeText("VIDAS: " + vidas , 10, 20);
+
+    ctx.strokeStyle = 'green';
+    ctx.font = "Arial";
+    ctx.strokeText("SCORE: " + score , 450, 20);
 
     ball.draw();
     raqueta.draw();
