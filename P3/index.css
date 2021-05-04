@@ -1,3 +1,7 @@
+body{
+    background-image: url(imagenes/mariofondo5.jpg);
+    
+}
 canvas{
     background-color: black;
     border-style: solid;
@@ -6,5 +10,6 @@ canvas{
     border-radius: 1px;
     margin-top: 50px;
     margin: 0 auto;
+    margin-left: 30%;
 }
 

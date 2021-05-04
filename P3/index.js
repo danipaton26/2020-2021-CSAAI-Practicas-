@@ -99,7 +99,7 @@ window.onkeydown = (e) => {
         ball.dx = speed;
         ball.dy = -speed +1
         
-    }
+    } 
 }
 
 let raqueta = {
