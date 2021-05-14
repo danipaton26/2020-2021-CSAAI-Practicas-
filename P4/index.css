@@ -9,4 +9,10 @@ body{
 
 #izquierda{
     float: left;
+    text-align: center;
+}
+
+#botones{
+    
+    margin-top: 400px;
 }
