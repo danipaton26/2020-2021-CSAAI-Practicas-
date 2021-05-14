@@ -14,6 +14,13 @@ img.onload = function () {
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let data = imgData.data
 
+    for (let i = 0; i < data.length; i+=4) {
+        data[i] = 0; //-- Canal rojo a 0
+      }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
+
     console.log("Tamañp de data: " + data.length)
 
     npixels = canvas.width * canvas.height
@@ -25,4 +32,4 @@ img.onload = function () {
   //-- tiene un tamaño de 4 * numero de pixeles
   console.log("Total de datos de la imagen: " + npixels * 4)
 };
-console.log("fin");
+console.log("fin")
