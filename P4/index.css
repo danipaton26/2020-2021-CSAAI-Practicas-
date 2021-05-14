@@ -4,15 +4,35 @@ body{
 
 #derecha{
     float: right;
-    margin-right: 20%;
+    margin-right: 3%;
 }
 
 #izquierda{
     float: left;
     text-align: center;
+    margin-left: 3%;
 }
 
-#botones{
+#fieldset{
+    margin-right: 40%;
+    margin-left: 35%;
+    margin-top: 5%;
+    border-radius: 50px;
+    border: solid white
+}
+
+#legend{
+    border-radius: 50px;
+    border: solid white;
     
-    margin-top: 400px;
+    text-align: left;
+    
+}
+
+#imgagesrc{
+    margin-right: 40%;
+    margin-left: 35%;
+    margin-top: 5%;
+    border-radius: 50px;
+    border: solid white
 }

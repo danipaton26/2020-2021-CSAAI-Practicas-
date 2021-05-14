@@ -14,6 +14,9 @@ const range_value = document.getElementById('range_value');
 const range_valueg = document.getElementById('range_valueg');
 const range_valueb = document.getElementById('range_valueb');
 
+//gris
+const gris = document.getElementById('gris');
+
 img.onload = function () {
     console.log("imagen cargada");
 
@@ -69,9 +72,30 @@ function colores() {
     ctx.putImageData(imgData, 0, 0);
 }
 
+function grises(){
+    ctx.drawImage(img, 0,0);
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data;
+    
+    for (var i = 0; i < data.length; i+=4) {
+      r = data[i];
+      g = data[i+1];
+      b = data[i+2];
+      brillo = (3 * r + 4 * g + b)/8
+      data[i] = brillo;
+      data[i+1] = brillo;
+      data[i+2] = brillo;
+    }
+    ctx.putImageData(imgData, 0, 0);
+  }
 
-
-
+  gris.onclick = () => {
+    
+    grises();
+   
+    
+  }
+  
 
 
 

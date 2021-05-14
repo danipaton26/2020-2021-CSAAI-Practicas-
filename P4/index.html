@@ -12,6 +12,15 @@
     <div id="izquierda">
     <p>Imagen original</p>
     <img src="kobeP4.jpg" id="imagesrc">
+    
+    </div>
+    <div id="derecha">
+    <p>Imagen manipulada</p>
+    <canvas id="canvas"></canvas>
+    </div>
+    <div id="botones">
+    <fieldset id="fieldset">
+        <legend id="legend"><h4>Gama de colores</h4></legend>
     <p>Establece el umbral de rojo:</p>
     <input type="range" id="deslizador" min="0" max="255" value="255"/>
     <p id="range_value">00</p>
@@ -19,16 +28,14 @@
     <p>Establece el umbral de verde:</p>
     <input type="range" id="deslizadorg" min="0" max="255" value="255"/>
     <p id="range_valueg">00</p>
-
+    
     <p>Establece el umbral de azul:</p>
     <input type="range" id="deslizadorb" min="0" max="255" value="255"/>
     <p id="range_valueb">00</p>
+
+    <button id="gris">GRIS</button>
+    </fieldset>
     </div>
-    <div id="derecha">
-    <p>Imagen manipulada</p>
-    <canvas id="canvas"></canvas>
-    </div>
-    
     
 </body>
 </html>
