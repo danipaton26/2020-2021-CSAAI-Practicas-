@@ -10,4 +10,19 @@ img.onload = function () {
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.drawImage(img, 0,0);
-}
+
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let data = imgData.data
+
+    console.log("Tamañp de data: " + data.length)
+
+    npixels = canvas.width * canvas.height
+  console.log("Anchura (en pixeles): " + canvas.width)
+  console.log("Altura (en pixeles): " + canvas.height)
+  console.log("Pixeles totales: " + npixels)
+
+  //-- Puesto que cada pixel ocupa 4 bytes, el array de píxeles
+  //-- tiene un tamaño de 4 * numero de pixeles
+  console.log("Total de datos de la imagen: " + npixels * 4)
+};
+console.log("fin");
