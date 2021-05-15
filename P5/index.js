@@ -26,7 +26,7 @@ btnon.onclick = () => {
     video1.play();
 
     //muted
-    video1.muted;
+    video1.muted = true;
 
     //imagen prueba en directo
     directo.poster = TEST_IMAGE_URL;
