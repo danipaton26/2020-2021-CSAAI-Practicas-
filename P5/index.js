@@ -62,3 +62,14 @@ btnv2.onclick = () => {
     directo.play();
     directo.poster=null;
 };
+
+//boton de off
+btnoff.onclick = () => {
+    directo.poster = TEST_IMAGE_URL;
+    video1.poster = TEST_IMAGE_URL;
+    video2.poster = TEST_IMAGE_URL;
+
+    directo.src = null;
+    video1.src = null;
+    video2.src = null;
+}
