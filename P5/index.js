@@ -25,7 +25,7 @@ video2.poster = TEST_IMAGE_URL;
 //fuentes on
 btnon.onclick = () => {
     video1.src="https://drive.google.com/uc?export=download&id=1acEQcG1m4kGnHftIgpnJR_NSTohX1p7j";
-    video2.src="https://drive.google.com/uc?export=download&id=1b2-ruYmxx0LeVSeoxhXtknVIKMeAkWl_"
+    video2.src="https://drive.google.com/uc?export=download&id=1b2-ruYmxx0LeVSeoxhXtknVIKMeAkWl_";
 
     //reproducir desde 0
     video1.currentTime = 0;
