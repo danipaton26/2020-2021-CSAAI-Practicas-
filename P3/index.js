@@ -9,6 +9,7 @@ const ctx = canvas.getContext("2d");
 izq = document.getElementById("izq");
 der = document.getElementById("der");
 
+//Definimos los ladrillos
 const LADRILLO = {
     F: 5,
     C: 13,
@@ -35,6 +36,7 @@ for (let i = 0; i < LADRILLO.F; i++){
     }
 
     }
+    //dibujo ladrillos
 function drawLadrillos() {
     for (let i = 0; i < LADRILLO.F; i++) {
         for (let j = 0; j < LADRILLO.C; j++){
@@ -48,7 +50,7 @@ function drawLadrillos() {
         }
     }
 }
-
+// colision de bola con el ladrillo
 function colisionLadrillo(){
     for(let i = 0; i < LADRILLO.F; i++){
         for (let j = 0; j < LADRILLO.C; j++){
@@ -59,7 +61,7 @@ function colisionLadrillo(){
                    ball.y <= ladrillos[i][j].y + LADRILLO.h)
                    {
                        ball.dy = -ball.dy;
-                       ladrillos[i][j].visible = false;
+                       ladrillos[i][j].visible = false; //desaparece el ladrillo colisionado
                        score = score + 1;
                     } 
                    
@@ -69,9 +71,9 @@ function colisionLadrillo(){
 
 }
 
-let speed = 4;
-let vidas = 3;
-let score = 0;
+let speed = 4; // velocidad bola
+let vidas = 3; // vidas
+let score = 0; // puntuación
 
 let rightPressed = false;
 let leftPressed = false;
@@ -79,7 +81,7 @@ let leftPressed = false;
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
 
-
+// definimos la bola
 let ball = {
     x: canvas.width /2,
     y: canvas.height - 50,
@@ -94,6 +96,7 @@ let ball = {
         ctx.fill();
     }
 };
+// pulsando espacio se mueve la pelota
 window.onkeydown = (e) => {
     if (e.keyCode == 32){
         ball.dx = speed;
@@ -101,7 +104,7 @@ window.onkeydown = (e) => {
         
     } 
 }
-
+// definimos la raqueta
 let raqueta = {
     width: 60,
     height: 10,
@@ -114,7 +117,7 @@ let raqueta = {
         ctx.fill();
     }
 };
-
+// movimiento de la raqueta con las flechas
 function keyDownHandler(e) {
     if (e.key == "Right" || e.key == "ArrowRight") {
       rightPressed = true;
@@ -136,23 +139,25 @@ function keyDownHandler(e) {
   function moveRaqueta(){
       if(rightPressed){
           raqueta.x += 7;
+          //limite derecha
           if(raqueta.x + raqueta.width >= canvas.width){
               raqueta.x = canvas.width - raqueta.width;
           }
       }
       if(leftPressed){
           raqueta.x -= 7;
+          //limite izq
           if(raqueta.x < 0){
               raqueta.x = 0;
           }
       }
   }
-
+//funcion principal
 function play(){
     document.getElementById("win").style.display = "none";
     document.getElementById("gameover").style.display = "none";
     document.getElementById("play").style.display = "none";
-
+    //rebote pelota
     if (ball.x <0 || ball.x >= canvas.width - 7) {
         ball.dx = -ball.dx;
       }
@@ -160,18 +165,20 @@ function play(){
       if (ball.y <0) {
         ball.dy = -ball.dy;
       }
+      //perdida de vida
     if (ball.y >= canvas.height) {
         vidas = vidas -1;
         ball.x = canvas.width /2;
         ball.y = canvas.height -50;
         ball.dx = 0;
         ball.dy = 0;
+        // game over
         }else if (vidas == 0){
             document.getElementById("canvas").style.display = "none";
             document.getElementById("gameover").style.display = "";
             document.getElementById("play").style.display = "";
             console.log("he perdido");
-            
+         //victoria   
         } else if (score == 65){
             ball.dx = 0;
             ball.dy = 0;
@@ -201,7 +208,7 @@ function play(){
 
     ball.x += ball.dx;
     ball.y += ball.dy;
-
+   // angulo de colision con la raqueta
     if (ball.x >= raqueta.x && ball.x <= raqueta.x + raqueta.width &&
          ball.y + ball.radius >= canvas.height - raqueta.height - 10) {
              let collidePoint = ball.x - (raqueta.x + raqueta.width/2);
