@@ -18,7 +18,7 @@ const ESTADO = {
     OPERATION: 2,
     OP2: 3,
 }
-let estado = ESTADO.INIT;
+let estado = ESTADO.INIT; // Empezar en el estado inicial
 
 for(i=0; i<digitos.length; i++){
     digitos[i].onclick=(ev)=>{
@@ -38,7 +38,7 @@ for(i=0; i<operador.length; i++){
 }
 
 function digit(num){
-
+// Pasos de un estado a otro si introducimos digito
     if (estado == ESTADO.INIT) {
         display.innerHTML = num;
         estado = ESTADO.OP1;
@@ -62,7 +62,7 @@ function operacion(ope){
         estado = ESTADO.OPERATION;
     }
 }
-
+// igual
 igual.onclick = () => {
     if (estado == ESTADO.OP1 || estado == ESTADO.OP2) {
         display.innerHTML = eval(display.innerHTML);
@@ -70,7 +70,7 @@ igual.onclick = () => {
       
     }
 }
-
+// clear
 clear.onclick = (ev) => {
     display.innerHTML = 0;
     console.log("clear")
@@ -82,7 +82,7 @@ borrar.onclick = (ev) =>{
     display.innerHTML = display.innerHTML.slice(0, -1);
 
 }
-
+// raiz
 sqrt.onclick = () => {
     display.innerHTML = Math.sqrt(display.innerHTML);
     
