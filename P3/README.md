@@ -9,3 +9,4 @@ Juego BreakOut
 
 MEJORAS:
 - La mejora que he hecho ha sido cambiar el ángulo de rebote de la pelota en función de la parte de la raqueta en la que colisione.
+- Imagen de victoria o de Game Over en el caso de que ganes o pierdas.
