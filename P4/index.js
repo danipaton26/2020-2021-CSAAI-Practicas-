@@ -17,9 +17,11 @@ const range_valueb = document.getElementById('range_valueb');
 //gris
 const gris = document.getElementById('gris');
 
+// Cargamos la imagen
 img.onload = function () {
     console.log("imagen cargada");
-
+    
+    //Ajustamos el canvas a la imagen
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.drawImage(img, 0,0);
@@ -46,11 +48,15 @@ function colores() {
     canvas.height = img.height;
 
     ctx.drawImage(img, 0,0);
+ 
 
+  //Obtener la imagen del canvas en pixeles
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-    //-- Obtener el array con todos los píxeles
+    //Obtener el array con todos los píxeles
     let data = imgData.data;
+
+    //Modificamos la imagen según el valor de los deslizadores
     range_value.innerHTML = deslizador.value;
     valorrojo = deslizador.value
 
@@ -81,7 +87,7 @@ function grises(){
       r = data[i];
       g = data[i+1];
       b = data[i+2];
-      brillo = (3 * r + 4 * g + b)/8
+      brillo = (3 * r + 4 * g + b)/8 //Filtro grises
       data[i] = brillo;
       data[i+1] = brillo;
       data[i+2] = brillo;
